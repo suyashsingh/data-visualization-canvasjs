@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Column Chart</title>
+	<script type="text/javascript">
+		/* Wait till everything is loaded. Its good to have this check
+		as there are chances that the entire page is no loaded.
+		*/
+		window.onload = function() {
+			// Create a new chart variable. You can draw multiple charts on
+			// page if you want.
+			var chart = new CanvasJS.Chart("chartContainer", {
+				animationEnabled: true,
+				
+				title: {
+					text: "Column Chart"
+				},
+
+				data: [{
+					// Add the points you want to plot
+					dataPoints: [
+						{ label: "Alpha", y: 10 },
+						{ label: "Bravo", y: 20 },
+						{ label: "Charlie", y: 30 },
+						{ label: "Delta", y: 15 },
+						{ label: "Echo", y: 12 },
+						{ label: "Foxtrot", y: 40 },
+						{ label: "Golf", y: 9 },
+						{ label: "Hotel", y: 23 },
+						{ label: "India", y: 33 },
+						{ label: "Juliet", y: 42 }, // IE8 is very vulnerable to trailing commas ;)
+					]
+				}]
+			});
+
+			// All good to go, Render the Chart!
+			chart.render();
+		}	
+	</script>
+</head>
+<body>
+	<!-- This is where our chart will get rendered. You should not mess with this
+		div as CanvasJS will be using it for rendering your graph.
+	 --> 
+	<div id="chartContainer" style="height: 400px; width: 100%;"></div>
+
+	<!-- Include the library. This can be either local or from some server -->
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>
