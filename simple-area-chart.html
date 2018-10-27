@@ -1,0 +1,78 @@
+<!--
+	Simple Area Chart
+	Area Charts are similar to line charts and are used to continous data (unlike column charts where the data is discrete).
+	The area covered but the envlope ie. the line formed by joning the x, y values and the x axis is usually shaded to show
+	the the cumulative(summation) effect.
+--> 
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Column Chart</title>
+	<script type="text/javascript">
+		/* Wait till everything is loaded. Its good to have this check
+		as there are chances that the entire page is no loaded.
+		*/
+		window.onload = function() {
+			// Create a new chart variable. You can draw multiple charts on
+			// page if you want.
+			var chart = new CanvasJS.Chart("chartContainer", {
+				
+				animationEnabled: true,
+				
+				theme: "dark2",
+
+				title: {
+					text: "Simple Area Chart"
+				},
+
+				// subtitles is an array of javascript objects - associative array
+				subtitles: [{
+					text: "Voltage Readings from a Potentiometer"
+				}],
+
+				data: [{
+					// specifing the chart type is mandatory as the default chart type 
+					// is column chart. If you want to draw column chart, you can get away
+					// by not specifying the chart type(as in simple-column-chart.html example).
+					
+					type: "area",
+
+					// If you happen to not like the spiked angles that are made you can change the
+					// chart type to "splineArea" but this would defy the purpose of the visualization 
+					// if your sole motive was to show the variation in data. As an experiment however
+					// feel free to comment the following line.
+
+					type: "splineArea",
+
+					// Add the points you want to plot
+					dataPoints: [
+
+						{ y: 10 },
+						{ y: 20 },
+						{ y: 30 },
+						{ y: 15 },
+						{ y: 12 },
+						{ y: 40 },
+						{ y: 9  },
+						{ y: 23 },
+						{ y: 33 },
+						{ y: 42 }, // IE8 is very vulnerable to trailing commas ;)
+					]
+				}]
+			});
+
+			// All good to go, Render the Chart!
+			chart.render();
+		}	
+	</script>
+</head>
+<body>
+	<!-- This is where our chart will get rendered. You should not mess with this
+		div as CanvasJS will be using it for rendering your graph.
+	 --> 
+	<div id="chartContainer" style="height: 400px; width: 100%;"></div>
+
+	<!-- Include the library. This can be either local or from some server -->
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>
